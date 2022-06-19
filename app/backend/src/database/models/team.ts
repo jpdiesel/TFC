@@ -7,7 +7,7 @@ class Team extends Model {
 }
 
 Team.init({
- teamName: STRING
+  teamName: STRING,
 }, {
   underscored: true,
   sequelize: db,
