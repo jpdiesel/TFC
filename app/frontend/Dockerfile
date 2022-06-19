@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-WORKDIR ./app
+WORKDIR /app
 
 EXPOSE 3000
 
@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . .
 
-CMD ("npm", "start")
+CMD ["npm", "start"]
