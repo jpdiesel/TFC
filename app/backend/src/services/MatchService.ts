@@ -24,6 +24,23 @@ class MatchService {
     });
     return matches;
   }
+
+  public async saveMatch(match: object) {
+    const savedMatch = await this.matchModel.create(match);
+    return savedMatch;
+  }
+
+  public async saveFinishedMatch(id: number) {
+    await this.matchModel.update({ inProgress: false }, { where: { id } });
+  }
+
+  public async updateScore(homeTeamGoals: number, awayTeamGoals: number, id: number) {
+    await this.matchModel.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+  }
+
+  public async endMatch(id: number) {
+    await this.matchModel.update({ inProgress: false }, { where: { id } });
+  }
 }
 
 export default MatchService;

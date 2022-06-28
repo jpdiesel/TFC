@@ -14,6 +14,7 @@ Match.init({
   id: {
     type: INTEGER,
     primaryKey: true,
+    // allowNull: false,
   },
   homeTeam: INTEGER,
   homeTeamGoals: INTEGER,
