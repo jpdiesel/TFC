@@ -18,18 +18,9 @@ class MatchService {
     const matches = await this.matchModel.findAll({
       where: { inProgress },
       include: [
-        { model: Team,
-          as: 'teamHome',
-          attributes: { exclude: ['id'] },
-        },
-        { model: Team,
-          as: 'teamAway',
-          attributes: { exclude: ['id'] },
-        },
+        { model: Team, as: 'teamHome', attributes: { exclude: ['id'] } },
+        { model: Team, as: 'teamAway', attributes: { exclude: ['id'] } },
       ],
-      attributes: {
-        exclude: ['id'],
-      },
     });
     return matches;
   }
