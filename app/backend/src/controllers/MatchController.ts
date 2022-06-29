@@ -35,7 +35,7 @@ class MatchController {
       const { id } = req.params;
       const verifyMatchExistence = await Match.findByPk(id);
       if (!verifyMatchExistence) return res.status(401).json({ message: 'Match not found' });
-      await this.match.saveFinishedMatch(parseInt(id, 16));
+      await this.match.endMatch(Number(id));
       return res.status(200).json({ message: 'Finished' });
     } catch (e) {
       console.log(e);
@@ -47,10 +47,10 @@ class MatchController {
       const { id } = req.params;
       const { homeTeamGoals, awayTeamGoals } = req.body;
       if (homeTeamGoals !== undefined) {
-        await this.match.updateScore(homeTeamGoals, awayTeamGoals, parseInt(id, 16));
+        await this.match.updateScore(homeTeamGoals, awayTeamGoals, Number(id));
         return res.status(200).json({ message: 'Score updated' });
       }
-      await this.match.endMatch(parseInt(id, 16));
+      await this.match.endMatch(Number(id));
       return res.status(200).json({ message: 'Match ended succesfully' });
     } catch (e) {
       console.log(e);

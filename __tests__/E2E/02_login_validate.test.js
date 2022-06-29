@@ -214,8 +214,8 @@ describe(getRequirement(14), () => {
           }
         }
       )
-      .then(({ status, data }) => ({status, data}))
-      .catch(({response: { status, data }}) => ({ status, data }));
+      .then(({ status, data }) => ({ status, data }))
+      .catch(({ response: { status, data } }) => ({ status, data }));
 
     expect(result).toHaveProperty("status");
     expect(result).toHaveProperty("data");

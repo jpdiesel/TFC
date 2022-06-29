@@ -1,18 +1,18 @@
 import { NextFunction, Request, Response } from 'express';
 import Team from '../database/models/team';
-import { validateToken } from '../utils/Token';
+// import { validateToken } from '../utils/Token';
 
-export const tokenValidation = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const { authorization } = req.headers;
-    if (!authorization) return res.status(400).json({ message: 'Token inválido' });
-    const token = await validateToken(authorization);
-    if (!token) return res.status(400).json({ message: 'Token inválido' });
-    next();
-  } catch (e) {
-    console.log(e);
-  }
-};
+// export const tokenValidation = async (req: Request, res: Response, next: NextFunction) => {
+//   try {
+//     const { authorization } = req.headers;
+//     if (!authorization) return res.status(400).json({ message: 'Token inválido' });
+//     const token = await validateToken(authorization);
+//     if (!token) return res.status(400).json({ message: 'Token inválido' });
+//     next();
+//   } catch (e) {
+//     console.log(e);
+//   }
+// };
 
 export const equalTeamsValidation = async (req: Request, res: Response, next: NextFunction) => {
   try {

@@ -95,7 +95,7 @@ const efficiency = (id: number, matches: Array<Match>, location: string) => {
     + getLoss(id, matches, location).l;
   const totalPoints = victory(id, matches, location).points
     + getDraw(id, matches, location).points;
-  const totalEfficiency = ((totalPoints / (allMatches * 3)) * 100).toFixed(2);
+  const totalEfficiency = Number(((totalPoints / (allMatches * 3)) * 100).toFixed(2));
   return totalEfficiency;
 };
 
