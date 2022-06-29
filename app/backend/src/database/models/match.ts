@@ -14,6 +14,7 @@ Match.init({
   id: {
     type: INTEGER,
     primaryKey: true,
+    autoIncrement: true,
     // allowNull: false,
   },
   homeTeam: INTEGER,
@@ -25,6 +26,7 @@ Match.init({
   underscored: true,
   sequelize: db,
   modelName: 'match',
+  // tableName: 'matches',
   timestamps: false,
 });
 

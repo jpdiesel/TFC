@@ -46,6 +46,8 @@ class MatchController {
     try {
       const { id } = req.params;
       const { homeTeamGoals, awayTeamGoals } = req.body;
+      const verifyMatchExistence = await Match.findByPk(id);
+      if (!verifyMatchExistence) return res.status(401).json({ message: 'Match not found' });
       if (homeTeamGoals !== undefined) {
         await this.match.updateScore(homeTeamGoals, awayTeamGoals, Number(id));
         return res.status(200).json({ message: 'Score updated' });

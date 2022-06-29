@@ -27,6 +27,7 @@ class MatchService {
 
   public async saveMatch(match: object) {
     const savedMatch = await this.matchModel.create(match);
+    // console.log(savedMatch);
     return savedMatch;
   }
 
