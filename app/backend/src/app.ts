@@ -1,5 +1,6 @@
 import * as cors from 'cors';
 import * as express from 'express';
+import LeaderboardRoutes from './routes/LeaderboardRoutes';
 import LoginRoutes from './routes/LoginRoutes';
 import MatchRoutes from './routes/MatchRoutes';
 import TeamRoutes from './routes/TeamRoutes';
@@ -28,6 +29,7 @@ class App {
     this.app.use('/matches', MatchRoutes);
     this.app.use('/login', LoginRoutes);
     this.app.use('/teams', TeamRoutes);
+    this.app.use('/leaderboard', LeaderboardRoutes);
   }
 
   // ...
