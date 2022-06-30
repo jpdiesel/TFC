@@ -149,8 +149,8 @@ export const full = async (teams: Array<Team>, allMatches: Match[], away:string,
       goalsFavor: favorGoals(team.id, allMatches, home) + favorGoals(team.id, allMatches, away),
       goalsOwn: concededGoals(team.id, allMatches, home) + concededGoals(team.id, allMatches, away),
       goalsBalance: balance(team.id, allMatches, home) + balance(team.id, allMatches, away),
-      efficiency: +((getPoints(team.id, allMatches, home) + getPoints(team.id, allMatches, away)
-        / (game(team.id, allMatches, home) + game(team.id, allMatches, away) * 3)) * 100).toFixed(2)
+      efficiency: +(((getPoints(team.id, allMatches, home) + getPoints(team.id, allMatches, away))
+      / ((game(team.id, allMatches, home) + game(team.id, allMatches, away)) * 3)) * 100).toFixed(2)
       ,
     };
     return a;
